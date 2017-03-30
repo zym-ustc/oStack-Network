@@ -1,3 +1,28 @@
+### vxlan
+用法：
+```
+create vxlan tunnel src <local-vtep-addr> {dst <remote-vtep-addr>|group <mcast-vtep-addr> <intf-name>} vni <nn> [encap-vrf-id <nn>] [decap-next [l2|node <name>]] [del]```
+```
+
+Add or delete a VXLAN Tunnel.
+
+VXLAN provides the features needed to allow L2 bridge domains (BDs) to span multiple servers. This is done by building an L2 overlay on top of an L3 network underlay using VXLAN tunnels.
+
+This makes it possible for servers to be co-located in the same data center or be separated geographically as long as they are reachable through the underlay L3 network.
+
+You can refer to this kind of L2 overlay bridge domain as a VXLAN (Virtual eXtensible VLAN) segment.
+
+Example usage
+Example of how to create a VXLAN Tunnel:
+```
+vpp# create vxlan tunnel src 10.0.3.1 dst 10.0.3.3 vni 13 encap-vrf-id 7
+```
+Example of how to delete a VXLAN Tunnel:
+```
+vpp# create vxlan tunnel src 10.0.3.1 dst 10.0.3.3 vni 13 del
+```
+
+- CLI全指令：
 ```
   api trace                                api trace [on|off][dump|save|replay <file>][status][free][post-mortem-on]
   cj                                       cj <enable | disable | dump>
